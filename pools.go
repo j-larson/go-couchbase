@@ -688,6 +688,7 @@ func doOutputAPI(
 	}
 
 	req, err := http.NewRequest(httpVerb, requestUrl, bytes.NewBufferString(postData.Encode()))
+logging.Errorf("URLSEARCH: %s, doOutputAPI()", requestUrl)
 	if err != nil {
 		return err
 	}
@@ -733,6 +734,7 @@ func queryRestAPI(
 	}
 
 	req, err := http.NewRequest("GET", requestUrl, nil)
+logging.Errorf("URLSEARCH: %s, queryRestAPI()", requestUrl)
 	if err != nil {
 		return err
 	}
@@ -776,6 +778,7 @@ func (c *Client) processStream(baseURL *url.URL, path string, authHandler AuthHa
 	}
 
 	req, err := http.NewRequest("GET", requestUrl, nil)
+logging.Errorf("URLSEARCH: %s, processStream()", requestUrl)
 	if err != nil {
 		return err
 	}

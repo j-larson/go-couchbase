@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"time"
+"github.com/couchbase/goutils/logging"
 )
 
 // ViewRow represents a single result from a view.
@@ -172,6 +173,7 @@ func (b *Bucket) ViewCustom(ddoc, name string, params map[string]interface{},
 	}
 
 	req, err := http.NewRequest("GET", u, nil)
+logging.Errorf("URLSEARCH: %s, Bucket.ViewCustom()", u)
 	if err != nil {
 		return err
 	}

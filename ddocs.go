@@ -147,6 +147,7 @@ func (b *Bucket) PutDDoc(docname string, value interface{}) error {
 		}
 
 		req, err := http.NewRequest("PUT", ddocU, bytes.NewReader(j))
+logging.Errorf("URLSEARCH: %s, Bucket.PutDDoc()", ddocU)
 		if err != nil {
 			return err
 		}
@@ -201,6 +202,7 @@ func (b *Bucket) GetDDoc(docname string, into interface{}) error {
 		logging.Infof(" Trying with selected node %d", selectedNode)
 
 		req, err := http.NewRequest("GET", ddocU, nil)
+logging.Errorf("URLSEARCH: %s, Bucket.GetDDoc()", ddocU)
 		if err != nil {
 			return err
 		}
@@ -259,6 +261,7 @@ func (b *Bucket) DeleteDDoc(docname string) error {
 		logging.Infof(" Trying with selected node %d", selectedNode)
 
 		req, err := http.NewRequest("DELETE", ddocU, nil)
+logging.Errorf("URLSEARCH: %s, Bucket.DeleteDDoc()", ddocU)
 		if err != nil {
 			return err
 		}

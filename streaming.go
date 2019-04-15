@@ -116,6 +116,7 @@ func (b *Bucket) UpdateBucket() error {
 		streamUrl := fmt.Sprintf("http://%s/pools/default/bucketsStreaming/%s", node.Hostname, b.GetName())
 		logging.Infof(" Trying with %s", streamUrl)
 		req, err := http.NewRequest("GET", streamUrl, nil)
+logging.Errorf("URLSEARCH: %s, Bucket.UpdateBucket()", streamUrl)
 		if err != nil {
 			return err
 		}
